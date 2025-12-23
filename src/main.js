@@ -5,6 +5,7 @@ Pseudo‑code overview of main.js:
 3. Create a new Phaser.Game instance with the config.
 */
 import { RaceScene } from "./scenes/RaceScene.js";
+import { CURRENT_MAP } from "./config/MapConfig.js";
 
 const config = {
     // 1. Renderer Type: AUTO will choose WebGL if available, otherwise Canvas.
@@ -17,7 +18,7 @@ const config = {
     // 3. Physics System: Use 'arcade' physics (simple AABB), with no gravity since it's top-down.
     physics: {
         default: 'arcade',
-        arcade: { gravity: { y: 0 }, debug: false }
+        arcade: { gravity: { y: 0 }, debug: CURRENT_MAP.debug }
     },
 
     // 4. Scenes: List of scenes to load. RaceScene is the main gameplay scene.

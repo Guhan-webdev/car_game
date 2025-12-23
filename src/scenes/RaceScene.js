@@ -52,11 +52,13 @@ export class RaceScene extends Phaser.Scene {
         // 3a. Start Zone (Visible Green Rectangle)
         // Indicates where the race begins.
         this.startZone = this.add.rectangle(CURRENT_MAP.spawnX, CURRENT_MAP.spawnY, 300, 300, 0x00ff00, 0.3);
+        this.startZone.setVisible(CURRENT_MAP.showZones); // Set visibility based on config
         this.physics.add.existing(this.startZone, true); // Static body
 
         // 3b. End Zone (Visible Red Rectangle for Debugging)
         // Co-located with Start Zone to require a full lap (or coverage loop).
         this.endZone = this.add.rectangle(CURRENT_MAP.spawnX, CURRENT_MAP.spawnY, 300, 300, 0xff0000, 0.3);
+        this.endZone.setVisible(CURRENT_MAP.showZones); // Set visibility based on config
         this.physics.add.existing(this.endZone, true);
 
         // 4. Setup Camera to follow car
