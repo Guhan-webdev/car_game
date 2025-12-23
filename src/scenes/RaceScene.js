@@ -76,7 +76,8 @@ export class RaceScene extends Phaser.Scene {
         }).setScrollFactor(0).setOrigin(0.5);
 
         // Progress UI
-        this.progressText = this.add.text(10, 10, 'Covered: 0%', {
+        const initialText = CURRENT_MAP.showCoverage ? 'Covered: 0%' : '';
+        this.progressText = this.add.text(10, 10, initialText, {
             font: '24px monospace',
             fill: '#00ff00',
             stroke: '#000000',
@@ -225,7 +226,7 @@ export class RaceScene extends Phaser.Scene {
             });
         }
 
-        if (didProgress) {
+        if (didProgress && CURRENT_MAP.showCoverage) {
             this.progressText.setText(`Covered: ${this.trackProgress.getPercentageString()}`);
         }
 

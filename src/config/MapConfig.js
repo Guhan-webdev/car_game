@@ -6,13 +6,14 @@ Pseudo-code overview of MapConfig.js:
 */
 
 export class MapData {
-    constructor({ key, texture, spawnX, spawnY, timeLimit, winRatio }) {
+    constructor({ key, texture, spawnX, spawnY, timeLimit, winRatio, showCoverage }) {
         this.key = key;           // Unique ID for the level
         this.texture = texture;   // Asset key for the background image
         this.spawnX = spawnX;     // Player start X
         this.spawnY = spawnY;     // Player start Y (and End Zone position)
         this.timeLimit = timeLimit; // Timer in seconds
         this.winRatio = winRatio; // Required track coverage (0.1 = 10%)
+        this.showCoverage = showCoverage; // Toggle progress text
     }
 }
 
@@ -24,7 +25,8 @@ export const MAPS = {
         spawnX: 700,
         spawnY: 300,
         timeLimit: 100, // seconds
-        winRatio: 0.15 // 15% coverage required
+        winRatio: 0.2, // 15% coverage required
+        showCoverage: false // Toggle this to hide/show running coverage percentage
     }),
     // Future maps can be added here easily:
     // level2: new MapData({ ... })
