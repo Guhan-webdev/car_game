@@ -1,0 +1,8 @@
+car resolution
+height: 20px;
+width: 50px;
+
+ground resolution
+height: 5300px;
+width: 6800px;
+
